@@ -1,1 +1,3 @@
-플젝 가이드
+git add .
+git commit -m "설명"
+git push
