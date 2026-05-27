@@ -98,11 +98,11 @@ with st.sidebar:
     with col1:
         st.markdown("**PER**")
         st.markdown('<span class="badge-safe">안전</span>', unsafe_allow_html=True)
-        st.plotly_chart(create_gauge_chart(metrics["PER"]["value"], "", 0, 30), use_container_width=True)
+        st.plotly_chart(create_gauge_chart(metrics["PER"]["value"], "", 0, 30), width="stretch")
     with col2:
         st.markdown("**PBR**")
         st.markdown('<span class="badge-safe">안전</span>', unsafe_allow_html=True)
-        st.plotly_chart(create_gauge_chart(metrics["PBR"]["value"], "", 0, 3), use_container_width=True)
+        st.plotly_chart(create_gauge_chart(metrics["PBR"]["value"], "", 0, 3), width="stretch")
         
     st.subheader("시장 심리 (Sentiment)")
     sentiment_data = pd.DataFrame({
@@ -112,7 +112,7 @@ with st.sidebar:
     fig_donut = px.pie(sentiment_data, values='Ratio', names='Sentiment', hole=.4,
                  color_discrete_sequence=['#2ecc71', '#95a5a6', '#e74c3c'])
     fig_donut.update_layout(showlegend=False, height=250, margin=dict(l=0, r=0, t=0, b=0))
-    st.plotly_chart(fig_donut, use_container_width=True)
+    st.plotly_chart(fig_donut, width="stretch")
     
     st.subheader("시장 동향 점수")
     trend_data = pd.DataFrame({
@@ -121,7 +121,7 @@ with st.sidebar:
     })
     fig_line = px.line(trend_data, x="Date", y="Score")
     fig_line.update_layout(height=200, margin=dict(l=0, r=0, t=0, b=0))
-    st.plotly_chart(fig_line, use_container_width=True)
+    st.plotly_chart(fig_line, width="stretch")
 
 # --- Main Area: AI Assistant ---
 st.title("🤖 삼성전자 AI 투자 비서")
