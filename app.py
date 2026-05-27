@@ -29,6 +29,12 @@ def load_rag_engine():
 
 try:
     rag_engine = load_rag_engine()
+    if rag_engine and rag_engine.vector_db:
+        st.sidebar.success(f"✅ 문서 학습 완료 ({len(rag_engine.pdf_paths)}개 파일)")
+        for p in rag_engine.pdf_paths:
+            st.sidebar.caption(f"📄 {os.path.basename(p)}")
+    else:
+        st.sidebar.warning("⚠️ 학습된 문서가 없습니다. PDF 파일을 확인해주세요.")
 except Exception as e:
     st.error(f"RAG 엔진 로드 실패: {e}")
     rag_engine = None
