@@ -19,8 +19,8 @@ st.set_page_config(
 @st.cache_resource
 def load_rag_engine():
     pdf_files = [
-        "팀플/[삼성전자]분기보고서(2026.05.15).pdf",
-        "팀플/[삼성전자]사업보고서(2026.03.10).pdf"
+        "[삼성전자]분기보고서(2026.05.15).pdf",
+        "[삼성전자]사업보고서(2026.03.10).pdf"
     ]
     # Ensure paths are correct relative to where streamlit is run
     base_path = os.path.dirname(__file__)
